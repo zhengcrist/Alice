@@ -19,12 +19,13 @@ public class Alice_start : MonoBehaviour
     {
         if(Mob_1.mobLife == Mob_1.mobMaxLife)
         {
-            max = minFunct();
-            useMax(max);
+            // max = minFunct();
+            // useMax(max);
+            LifeMinusPopo();
         }
     }
 
-    int minFunct()
+    /*int minFunct()
     {
         int min;
 
@@ -54,6 +55,17 @@ public class Alice_start : MonoBehaviour
         Inventory_Script.ToadNum -= max;
 
         Mob_1.mobLife -= max;
+        if (Mob_1.mobLife < 10)
+        {
+            Mob_1.mobLife = 10;
+        }
+    }*/
+
+    void LifeMinusPopo()
+    {
+        int lifepopo = Inventory_Script.MedNum;
+
+        Mob_1.mobLife -= lifepopo;
         if (Mob_1.mobLife < 10)
         {
             Mob_1.mobLife = 10;

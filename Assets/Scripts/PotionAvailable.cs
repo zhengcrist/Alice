@@ -28,7 +28,8 @@ public class PotionAvailable : MonoBehaviour
     {
         if (Potion.CompareTag("Green"))
         {
-            if (Inventory_Script.MedNum >= 1 && Inventory_Script.OilNum >= 1 && Inventory_Script.ToadNum >= 1)
+            // if (Inventory_Script.MedNum >= 1 && Inventory_Script.OilNum >= 1 && Inventory_Script.ToadNum >= 1)
+            if (Inventory_Script.MedNum >= 2)
             {
                 //Change the Texture to be the one you define in the Inspector
                 m_RawImage.texture = m_Texture;

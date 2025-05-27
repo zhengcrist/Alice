@@ -182,7 +182,8 @@ public class Player_Script1 : MonoBehaviour
     public void Heal(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
-        if (player.inAction == false && GroundCheck.IsGrounded && Inventory_Script.MedNum >= 1 && Inventory_Script.OilNum >= 1 && Inventory_Script.ToadNum >= 1 && life < maxlife)
+        // if (player.inAction == false && GroundCheck.IsGrounded && Inventory_Script.MedNum >= 1 && Inventory_Script.OilNum >= 1 && Inventory_Script.ToadNum >= 1 && life < maxlife)
+        if (player.inAction == false && GroundCheck.IsGrounded && Inventory_Script.MedNum >= 2 && life < maxlife)
         {
             audioManager.PlaySFX(audioManager.SFX_Drink);
 
@@ -195,11 +196,11 @@ public class Player_Script1 : MonoBehaviour
             life++;
             life++;
 
-            Inventory_Script.MedNum--;
-            Inventory_Script.OilNum--;
-            Inventory_Script.ToadNum--;
+            Inventory_Script.MedNum -= 2;
+            // Inventory_Script.OilNum--;
+            // Inventory_Script.ToadNum--;
         }
-        else if (player.inAction == false && GroundCheck.IsGrounded && Inventory_Script.MedNum >= 1 && Inventory_Script.OilNum >= 1 && Inventory_Script.ToadNum >= 1 && life >= maxlife)
+        else if (player.inAction == false && GroundCheck.IsGrounded && Inventory_Script.MedNum >= 2 && life >= maxlife)
         {
 
             Player_animator.SetBool("No_Drink", true);
@@ -208,7 +209,7 @@ public class Player_Script1 : MonoBehaviour
             player.inAction = true;
             StartCoroutine(Cooldown(cooldownNoDrink));
         }
-        else if (!(Inventory_Script.MedNum >= 1 && Inventory_Script.OilNum >= 1 && Inventory_Script.ToadNum >= 1))
+        else if (!(Inventory_Script.MedNum >= 2))
         {
             audioManager.PlaySFX(audioManager.SFX_Wrong);
         }
